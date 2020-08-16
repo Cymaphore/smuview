@@ -132,13 +132,9 @@ if (PkgConfig_FOUND)
 		pkg_check_modules(PYTHON3 python3)
 	endif()
 endif()
-if (NOT PYTHON3_FOUND)
-	set(PYBIND11_FINDPYTHON ON)
-endif()
 
-# SmuView has its own copy of pybind11 2.4.3
-#find_package(Python COMPONENTS Interpreter Development)
-#set(PYBIND11_FINDPYTHON ON)
+# SmuView has its own copy of pybind11 2.6.x
+set(PYBIND11_FINDPYTHON ON)
 add_subdirectory(external/pybind11)
 # SmuView has its own copy of QCodeEditor
 add_subdirectory(external/QCodeEditor)
