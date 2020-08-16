@@ -122,9 +122,23 @@ find_package(Boost 1.54 REQUIRED)
 # This will set ${CMAKE_THREAD_LIBS_INIT} to the correct, OS-specific value.
 find_package(Threads REQUIRED)
 
+# We try to find Python 3.x by ourselfes, so pybind11 also works with MXE
+if (PkgConfig_FOUND)
+	# Python 3.8 no longer links to libpython, but it provides a python3-embed.pc now, so let's try
+	# using that first and only fall back on the normal case if that fails.
+	# See: https://docs.python.org/3.8/whatsnew/3.8.html#debug-build-uses-the-same-abi-as-release-build
+	pkg_check_modules(PYTHON3 python3-embed)
+	if (NOT PYTHON3_FOUND)
+		pkg_check_modules(PYTHON3 python3)
+	endif()
+endif()
+if (NOT PYTHON3_FOUND)
+	set(PYBIND11_FINDPYTHON ON)
+endif()
+
 # SmuView has its own copy of pybind11 2.4.3
 #find_package(Python COMPONENTS Interpreter Development)
-set(PYBIND11_FINDPYTHON ON)
+#set(PYBIND11_FINDPYTHON ON)
 add_subdirectory(external/pybind11)
 # SmuView has its own copy of QCodeEditor
 add_subdirectory(external/QCodeEditor)
