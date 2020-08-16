@@ -150,6 +150,7 @@ if (PkgConfig_FOUND)
 		message(STATUS "Python_LIBRARY: ${Python_LIBRARY}")
 		message(STATUS "PYTHON3_LIBRARIES: ${PYTHON3_LIBRARIES}")
 		message(STATUS "PYTHON3_LINK_LIBRARIES: ${PYTHON3_LINK_LIBRARIES}")
+		message(STATUS "PYTHON3_FOUND: ${PYTHON3_FOUND}")
 		#set(PYTHON_MODULE_PREFIX "")
 		#set(PYTHON_MODULE_EXTENSION "")
 		#string(REPLACE "." ";" PYTHON3_VERSION_LIST ${PYTHON3_VERSION})
@@ -161,7 +162,7 @@ endif()
 
 # SmuView has its own copy of pybind11 2.6.x
 #set(PYBIND11_FINDPYTHON ON)
-set(PYBIND11_NOPYTHON ON)
+#set(PYBIND11_NOPYTHON ON)
 add_subdirectory(external/pybind11)
 # SmuView has its own copy of QCodeEditor
 add_subdirectory(external/QCodeEditor)
