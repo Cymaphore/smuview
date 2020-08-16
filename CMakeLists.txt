@@ -160,7 +160,8 @@ if (PkgConfig_FOUND)
 endif()
 
 # SmuView has its own copy of pybind11 2.6.x
-set(PYBIND11_FINDPYTHON ON)
+#set(PYBIND11_FINDPYTHON ON)
+set(PYTHON_NOPYTHON ON)
 add_subdirectory(external/pybind11)
 # SmuView has its own copy of QCodeEditor
 add_subdirectory(external/QCodeEditor)
