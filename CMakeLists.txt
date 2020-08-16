@@ -123,7 +123,8 @@ find_package(Boost 1.54 REQUIRED)
 find_package(Threads REQUIRED)
 
 # SmuView has its own copy of pybind11 2.4.3
-find_package(Python COMPONENTS Interpreter Development)
+#find_package(Python COMPONENTS Interpreter Development)
+set(PYBIND11_FINDPYTHON ON)
 add_subdirectory(external/pybind11)
 # SmuView has its own copy of QCodeEditor
 add_subdirectory(external/QCodeEditor)
