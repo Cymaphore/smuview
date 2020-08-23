@@ -123,7 +123,6 @@ void SmuScriptView::setup_ui()
 	editor_->setCompleter(new QPythonCompleter);
 	editor_->setHighlighter(new QPythonHighlighter);
 	editor_->setAutoIndentation(true);
-	editor_->setAutoParentheses(true);
 	editor_->setWordWrapMode(QTextOption::WordWrap);
 	layout->addWidget(editor_);
 
